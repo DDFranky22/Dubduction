@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class LoadMenuAfter : MonoBehaviour {
+	//stupid comment is stupid for a reason
 
 	// Use this for initialization
 	IEnumerator Start () {
