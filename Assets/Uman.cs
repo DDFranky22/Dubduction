@@ -141,21 +141,22 @@ public class Uman : MonoBehaviour
 	}
 
 	public void Kill(int i){
-		anim.abductionAnimation (true);
-		abduct = true;
-		if (i != 1) {
-			//GetComponent<SpriteRenderer> ().enabled = false;
+		if (currentState == humanState.empty || (currentState == humanState.noArmy && anim.getAttack())) {
+			anim.abductionAnimation (true);
+			abduct = true;
 		}
-		if (currentState == humanState.noArmy) {
-			GetComponent<SpriteRenderer>().sprite = soldatoNoArmy;
+		if (currentState == humanState.noArmy && !anim.getAttack ()) {
+			anim.reloadAnimation(false);
+			anim.attackAnimation(true);
 		}
-
 		source.clip = audioscript.getClip (i);
 		source.Play ();
 	}
 
 	public void Reload(){
-		GetComponent<SpriteRenderer>().sprite = soldatoArmy;
+		//GetComponent<SpriteRenderer>().sprite = soldatoArmy;
+		anim.attackAnimation(false);
+		anim.reloadAnimation(true);
 	}
 
 	public void Land(){

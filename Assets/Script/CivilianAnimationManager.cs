@@ -23,4 +23,20 @@ public class CivilianAnimationManager : MonoBehaviour {
 		animator.SetBool ("abduction", v);
 	}
 
+	public void attackAnimation(bool v){
+		animator.SetBool ("attack", v);
+	}
+
+	public bool getAttack(){
+		return animator.GetBool ("attack");
+	}
+
+	public void reloadAnimation(bool v){
+		animator.SetBool ("reload", v);
+	}
+	
+	public void destroyAnimation(bool v){
+		animator.SetBool ("destroy", v);
+	}
+
 }
